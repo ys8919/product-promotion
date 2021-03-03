@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxun.dao.CommodityMapper">
+
+    <insert id="addCommodity" parameterType="com.gxun.entity.Commodity" >
+        INSERT INTO commodity ( cid,cname, price,information,detailed,photo,number,salesVolume,shelfState)
+        VALUES
+            ( #{cid},#{cname}, #{price}, #{information}, #{detailed}, #{photo}, #{number}, #{salesVolume}, #{shelfState} );
+    </insert>
+    <update id="updateCommodity" parameterType="com.gxun.entity.Commodity">
+        update commodity
+        <trim prefix="set" prefixOverrides=",">
+            <if test="cname!=null">
+                cname=#{cname}
+            </if>
+            <if test="price!=null">
+                price=#{price}
+            </if>
+            <if test="information!=null">
+                information=#{information}
+            </if>
+            <if test="detailed!=null">
+                detailed=#{detailed}
+            </if>
+            <if test="photo!=null">
+                photo=#{photo}
+            </if>
+            <if test="number!=null">
+                number=#{number}
+            </if>
+            <if test="salesVolume!=null">
+                salesVolume=#{salesVolume}
+            </if>
+            <if test="shelfState!=null">
+                shelfState=#{shelfState}
+            </if>
+        </trim>
+        where cid=#{cid}
+    </update>
+
+    <delete id="deleteCommodity" parameterType="com.gxun.entity.Commodity">
+        delete from commodity where cid=#{cid}
+    </delete>
+
+    <select id="queryCommodityList" resultType="com.gxun.entity.Commodity" parameterType="HashMap">
+        select * from commodity
+        <where>
+            <if test="cid!=null">
+                cid=#{cid}
+            </if>
+            <if test="cname!=null">
+                cname=#{cname}
+            </if>
+            <if test="price!=null">
+                price=#{price}
+            </if>
+            <if test="information!=null">
+                information=#{information}
+            </if>
+            <if test="detailed!=null">
+                detailed=#{detailed}
+            </if>
+            <if test="photo!=null">
+                photo=#{photo}
+            </if>
+            <if test="number!=null">
+                number=#{number}
+            </if>
+            <if test="salesVolume!=null">
+                salesVolume=#{salesVolume}
+            </if>
+            <if test="shelfState!=null">
+                shelfState=#{shelfState}
+            </if>
+        </where>
+    </select>
+
+</mapper>

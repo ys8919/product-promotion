@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxun.dao.UserMapper">
+    <insert id="addUsers" parameterType="com.gxun.entity.Users">
+        INSERT INTO users ( uid,username, password,email,jction)
+        VALUES
+            ( #{uid},#{username}, #{password}, #{email}, #{jction} );
+    </insert>
+    <update id="updateUsers" parameterType="com.gxun.entity.Users">
+        update users
+        <trim prefix="set" prefixOverrides=",">
+            <if test="username!=null">
+                username=#{username}
+            </if>
+            <if test="email!=null">
+                email=#{email}
+            </if>
+            <if test="password!=null">
+                password=#{password}
+            </if>
+            <if test="jction!=null">
+                jction=#{jction}
+            </if>
+        </trim>
+        where uid=#{uid}
+        </update>
+
+    <delete id="deleteUsers"></delete>
+
+    <select id="queryUsersList" resultType="com.gxun.entity.Users" parameterType="HashMap">
+        select * from users
+        <where>
+            <if test="uid != null">
+                uid = ${uid}
+            </if>
+            <if test="username != null">
+                AND username =  ${username}
+            </if>
+            <if test="password != null">
+                AND password = ${password}
+            </if>
+            <if test="email != null">
+                AND email = ${email}
+            </if>
+            <if test="jction != null">
+                AND jction = #{jction}
+            </if>
+        </where>
+    </select>
+    <select id="login" resultType="com.gxun.entity.Users" parameterType="com.gxun.entity.Users">
+        select * from users
+        where username=#{username} and password=#{password}
+        </select>
+</mapper>
