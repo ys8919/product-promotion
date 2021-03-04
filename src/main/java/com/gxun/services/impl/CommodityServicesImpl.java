@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashMap;
 @Service
-public class CommodityMapperImpl implements CommodityServices {
+public class CommodityServicesImpl implements CommodityServices {
     @Autowired
     private CommodityMapper commodityMapper;
 

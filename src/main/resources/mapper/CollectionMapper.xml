@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxun.dao.CollectionMapper">
+    <insert id="addCollection" parameterType="com.gxun.entity.Collection" >
+        INSERT INTO Collection ( id,uid, cid)
+        VALUES
+        ( #{id},#{uid}, #{cid} );
+    </insert>
+    <update id="updateCollection" parameterType="com.gxun.entity.Collection">
+        update Collection
+        <trim prefix="set" prefixOverrides=",">
+            <if test="uid!=null">
+                uid=#{uid}
+            </if>
+            <if test="cid!=null">
+                cid=#{cid}
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteCollection" parameterType="com.gxun.entity.Collection">
+        delete from Collection where id=#{id}
+    </delete>
+
+    <select id="queryCollectionList" resultType="com.gxun.entity.Collection" parameterType="HashMap">
+        select * from Collection
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="uid!=null">
+                uid=#{uid}
+            </if>
+            <if test="cid!=null">
+                cid=#{cid}
+            </if>
+        </where>
+    </select>
+</mapper>

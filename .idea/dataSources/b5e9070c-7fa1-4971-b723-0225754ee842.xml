@@ -761,71 +761,135 @@ SELECT|sys.sys_config
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="237" parent="9" name="commodity"/>
-    <table id="238" parent="9" name="users"/>
-    <column id="239" parent="237" name="cid">
+    <table id="237" parent="9" name="Collection"/>
+    <table id="238" parent="9" name="commodity"/>
+    <table id="239" parent="9" name="users"/>
+    <column id="240" parent="237" name="id">
       <Position>1</Position>
+      <Comment>id</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="240" parent="237" name="cname">
+    <column id="241" parent="237" name="uid">
       <Position>2</Position>
+      <Comment>user表id</Comment>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="242" parent="237" name="cid">
+      <Position>3</Position>
+      <Comment>商品表id</Comment>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <index id="243" parent="237" name="uuid">
+      <ColNames>uid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="244" parent="237" name="ccid">
+      <ColNames>cid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="245" parent="237" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="246" parent="237" name="uuid">
+      <ColNames>uid</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>uid</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <foreign-key id="247" parent="237" name="ccid">
+      <ColNames>cid</ColNames>
+      <RefTableName>commodity</RefTableName>
+      <RefColNames>cid</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="248" parent="238" name="cid">
+      <Position>1</Position>
+      <Comment>id</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="249" parent="238" name="cname">
+      <Position>2</Position>
+      <Comment>商品名</Comment>
       <DataType>varchar(50)|0s</DataType>
     </column>
-    <column id="241" parent="237" name="price">
+    <column id="250" parent="238" name="price">
       <Position>3</Position>
+      <Comment>价格</Comment>
       <DataType>float|0s</DataType>
     </column>
-    <column id="242" parent="237" name="information">
+    <column id="251" parent="238" name="information">
       <Position>4</Position>
+      <Comment>信息</Comment>
       <DataType>varchar(500)|0s</DataType>
     </column>
-    <column id="243" parent="237" name="photo">
+    <column id="252" parent="238" name="photo">
       <Position>5</Position>
+      <Comment>照片链接</Comment>
       <DataType>varchar(300)|0s</DataType>
     </column>
-    <column id="244" parent="237" name="number">
+    <column id="253" parent="238" name="number">
       <Position>6</Position>
+      <Comment>库存</Comment>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="245" parent="237" name="salesVolume">
+    <column id="254" parent="238" name="salesVolume">
       <Position>7</Position>
+      <Comment>销量</Comment>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="246" parent="237" name="shelfState">
+    <column id="255" parent="238" name="shelfState">
       <Position>8</Position>
+      <Comment>上架状态</Comment>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
     </column>
-    <column id="247" parent="237" name="detailed">
+    <column id="256" parent="238" name="detailed">
       <Position>9</Position>
+      <Comment>详细信息</Comment>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="248" parent="238" name="uid">
+    <index id="257" parent="238" name="cid">
+      <ColNames>cid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="258" parent="239" name="uid">
       <Position>1</Position>
+      <Comment>id</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="249" parent="238" name="username">
+    <column id="259" parent="239" name="username">
       <Position>2</Position>
+      <Comment>账户名</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="250" parent="238" name="password">
+    <column id="260" parent="239" name="password">
       <Position>3</Position>
+      <Comment>登录密码</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="251" parent="238" name="email">
+    <column id="261" parent="239" name="email">
       <Position>4</Position>
+      <Comment>邮箱</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="252" parent="238" name="jction">
+    <column id="262" parent="239" name="jction">
       <Position>5</Position>
+      <Comment>权限</Comment>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
     </column>
+    <index id="263" parent="239" name="uid">
+      <ColNames>uid</ColNames>
+      <Type>btree</Type>
+    </index>
   </database-model>
 </dataSource>

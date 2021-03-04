@@ -68,7 +68,7 @@ public class UserServicesImpl implements UserServices {
     @Override
     public String addUsers(Users users) {
         HashMap<String,Object> msg=new HashMap<String,Object>();
-        users.setUid(RandIdUtil.rangId());
+        users.setUid(RandIdUtil.randomUserId());
         if(usersMapper.addUsers(users)>0)
         {
             msg.put("msg","注册成功");
