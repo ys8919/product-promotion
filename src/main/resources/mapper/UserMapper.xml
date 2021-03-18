@@ -18,16 +18,48 @@
             <if test="password!=null">
                 password=#{password}
             </if>
-            <if test="jction!=null">
+            <if test="jction!=0">
                 jction=#{jction}
             </if>
         </trim>
         where uid=#{uid}
         </update>
-
+    <update id="forgetPassword" parameterType="com.gxun.entity.Users">
+        update users
+        <trim prefix="set" prefixOverrides=",">
+            <if test="password!=null">
+                password=#{password}
+            </if>
+        </trim>
+        where username=#{username} and  email=#{email}
+    </update>
     <delete id="deleteUsers"></delete>
 
     <select id="queryUsersList" resultType="com.gxun.entity.Users" parameterType="HashMap">
+        select uid,username,email,jction from users
+        <where>
+            <if test="uid!= null">
+                uid = ${uid}
+            </if>
+            <if test="username!= null">
+                AND username =  ${username}
+            </if>
+            <if test="password!= null">
+                AND password = ${password}
+            </if>
+            <if test="email!= null">
+                AND email = ${email}
+            </if>
+            <if test="jction!= null">
+                AND jction = #{jction}
+            </if>
+        </where>
+    </select>
+    <select id="login" resultType="com.gxun.entity.Users" parameterType="com.gxun.entity.Users">
+        select * from users
+        where username=#{username} and password=#{password}
+        </select>
+    <select id="selectOneUser" resultType="com.gxun.entity.Users" parameterType="com.gxun.entity.Users">
         select * from users
         <where>
             <if test="uid != null">
@@ -42,13 +74,9 @@
             <if test="email != null">
                 AND email = ${email}
             </if>
-            <if test="jction != null">
+            <if test="jction != 0">
                 AND jction = #{jction}
             </if>
         </where>
     </select>
-    <select id="login" resultType="com.gxun.entity.Users" parameterType="com.gxun.entity.Users">
-        select * from users
-        where username=#{username} and password=#{password}
-        </select>
 </mapper>

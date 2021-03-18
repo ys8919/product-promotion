@@ -12,6 +12,7 @@ import java.util.HashMap;
 @Repository
 public interface CommodityMapper {
     ArrayList<Commodity> queryCommodityList(HashMap<String, Object> u);
+    ArrayList<Commodity> queryCommodityListIndex(HashMap<String, Object> u);
     int addCommodity(Commodity commodity);
     int updateCommodity(Commodity commodity);
     int deleteCommodity(Commodity commodity);

@@ -16,6 +16,8 @@ import java.util.HashMap;
 public interface UserMapper {
     ArrayList<Users> queryUsersList(HashMap<String, Object> u);
     Users login(Users users);
+    Users selectOneUser(Users users);
+    int forgetPassword(Users users);
     int addUsers(Users users);
     int updateUsers(Users users);
     int deleteUsers(Users users);

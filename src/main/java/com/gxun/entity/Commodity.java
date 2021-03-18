@@ -20,7 +20,10 @@ public class Commodity {
     private String information;
     private String detailed;
     private String photo;
+    private String time;
     private int number;
     private int salesVolume;
     private int shelfState;
+    private int classify1;
+    private int classify2;
 }

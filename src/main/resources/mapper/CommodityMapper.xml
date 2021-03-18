@@ -3,9 +3,9 @@
 <mapper namespace="com.gxun.dao.CommodityMapper">
 
     <insert id="addCommodity" parameterType="com.gxun.entity.Commodity" >
-        INSERT INTO commodity ( cid,cname, price,information,detailed,photo,number,salesVolume,shelfState)
+        INSERT INTO commodity (cid,cname, price,information,detailed,photo,number,salesVolume,time,classify1,classify2)
         VALUES
-            ( #{cid},#{cname}, #{price}, #{information}, #{detailed}, #{photo}, #{number}, #{salesVolume}, #{shelfState} );
+            ( #{cid},#{cname}, #{price}, #{information}, #{detailed}, #{photo}, #{number}, #{salesVolume} , #{time} , #{classify1}, #{classify2});
     </insert>
     <update id="updateCommodity" parameterType="com.gxun.entity.Commodity">
         update commodity
@@ -33,6 +33,12 @@
             </if>
             <if test="shelfState!=null">
                 shelfState=#{shelfState}
+            </if>
+            <if test="classify1!=null">
+                classify1=#{classify1}
+            </if>
+            <if test="classify2!=null">
+                classify2=#{classify2}
             </if>
         </trim>
         where cid=#{cid}
@@ -72,7 +78,52 @@
             <if test="shelfState!=null">
                 shelfState=#{shelfState}
             </if>
+            <if test="classify1!=null">
+                classify1=#{classify1}
+            </if>
+            <if test="classify2!=null">
+                classify2=#{classify2}
+            </if>
         </where>
     </select>
 
+    <select id="queryCommodityListIndex" resultType="com.gxun.entity.Commodity" parameterType="HashMap">
+        select * from commodity
+        <where>
+            <if test="cid!=null">
+                cid=#{cid}
+            </if>
+            <if test="cname!=null">
+                cname=#{cname}
+            </if>
+            <if test="price!=null">
+                price=#{price}
+            </if>
+            <if test="information!=null">
+                information=#{information}
+            </if>
+            <if test="detailed!=null">
+                detailed=#{detailed}
+            </if>
+            <if test="photo!=null">
+                photo=#{photo}
+            </if>
+            <if test="number!=null">
+                number=#{number}
+            </if>
+            <if test="salesVolume!=null">
+                salesVolume=#{salesVolume}
+            </if>
+            <if test="classify1!=null">
+                classify1=#{classify1}
+            </if>
+            <if test="classify2!=null">
+                classify2=#{classify2}
+            </if>
+            <if test="1==1">
+                shelfState=1
+            </if>
+        </where>
+        ORDER BY time DESC , salesVolume DESC
+    </select>
 </mapper>

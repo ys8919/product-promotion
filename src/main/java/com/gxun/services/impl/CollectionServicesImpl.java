@@ -6,7 +6,9 @@ import com.github.pagehelper.PageInfo;
 import com.gxun.dao.CollectionMapper;
 import com.gxun.entity.Collection;
 import com.gxun.services.CollectionServices;
+import com.gxun.util.ConstantValueUtil;
 import com.gxun.util.RandIdUtil;
+import com.gxun.util.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,7 @@ public class CollectionServicesImpl implements CollectionServices {
         msg.put("msg","查询成功");
         msg.put("flag",true);
         msg.put("data",pageinfo.getList());
+        msg.put("code", ConstantValueUtil.RESCODE_SUCCESS);
         msg.put("count",pageinfo.getTotal());
 
         return JSON.toJSONString(msg);
@@ -36,8 +39,10 @@ public class CollectionServicesImpl implements CollectionServices {
     public String addCollection(Collection collection) {
         HashMap<String,Object> msg=new HashMap<String,Object>();
         collection.setId(RandIdUtil.getCollectionId());
+        collection.setTime(TimeUtil.getTime());
         if(collectionMapper.addCollection(collection)>0)
         {
+            msg.put("code",ConstantValueUtil.RESCODE_SUCCESS);
             msg.put("msg","添加收藏成功");
             msg.put("flag",true);
 
@@ -56,6 +61,7 @@ public class CollectionServicesImpl implements CollectionServices {
         if(collectionMapper.updateCollection(collection)>0)
         {
             msg.put("msg","更新收藏成功");
+            msg.put("code",ConstantValueUtil.RESCODE_SUCCESS);
             msg.put("flag",true);
 
         }else
@@ -72,6 +78,7 @@ public class CollectionServicesImpl implements CollectionServices {
 
         if(collectionMapper.deleteCollection(collection)>0)
         {
+            msg.put("code",ConstantValueUtil.RESCODE_SUCCESS);
             msg.put("msg","删除收藏成功");
             msg.put("flag",true);
 

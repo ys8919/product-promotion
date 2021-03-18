@@ -9,9 +9,7 @@ public class TimeUtil {
        return df.format(new Date());
 	}
 	public static String nowDateById() {
-		SimpleDateFormat time = new SimpleDateFormat("yyyyMMdd");
-		Date date = new Date();
-		String nowtime = time.format(date);
-		return nowtime;
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+		return df.format(new Date());
 	}
 }

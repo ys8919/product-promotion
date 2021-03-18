@@ -21,4 +21,5 @@ public class Collection implements Serializable {
     private String id;
     private String uid;
     private String cid;
+    private String time;
 }

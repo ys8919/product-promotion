@@ -14,6 +14,8 @@ import java.util.List;
 public interface UserServices {
     String queryUsersList(HashMap<String, Object> u);
     String login(Users users);
+    String register(Users users);
+    String forgetPassword(Users users);
     String addUsers(Users users);
     String updateUsers(Users users);
     String deleteUsers(Users users);

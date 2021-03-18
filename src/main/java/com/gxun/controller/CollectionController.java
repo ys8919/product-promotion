@@ -15,23 +15,22 @@ import java.util.HashMap;
 
 @Controller
 @ResponseBody
-@CrossOrigin    //解决跨域问题
 public class CollectionController {
     @Autowired
     private CollectionServices collectionServices;
-    @RequestMapping("queryCollectionList")
+    @RequestMapping("/collection/queryCollectionList")
     public  String queryCollectionList(@RequestBody HashMap<String,Object> u){
         return collectionServices.queryCollectionList(u);
     }
-    @RequestMapping("addCollection")
+    @RequestMapping("/collection/addCollection")
     public String addCollection(@RequestBody Collection commodity){
         return collectionServices.addCollection(commodity);
     }
-    @RequestMapping("updateCollection")
+    @RequestMapping("/collection/updateCollection")
     public String updateCollection(@RequestBody Collection commodity){
         return collectionServices.updateCollection(commodity);
     }
-    @RequestMapping("deleteCollection")
+    @RequestMapping("/collection/deleteCollection")
     public String deleteCollection(@RequestBody Collection commodity){
         return collectionServices.deleteCollection(commodity);
     }

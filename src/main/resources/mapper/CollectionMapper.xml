@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gxun.dao.CollectionMapper">
     <insert id="addCollection" parameterType="com.gxun.entity.Collection" >
-        INSERT INTO Collection ( id,uid, cid)
+        INSERT INTO Collection ( id,uid, cid,time)
         VALUES
-        ( #{id},#{uid}, #{cid} );
+        ( #{id},#{uid}, #{cid}, #{time} );
     </insert>
     <update id="updateCollection" parameterType="com.gxun.entity.Collection">
         update Collection
