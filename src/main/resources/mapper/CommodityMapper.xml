@@ -3,9 +3,9 @@
 <mapper namespace="com.gxun.dao.CommodityMapper">
 
     <insert id="addCommodity" parameterType="com.gxun.entity.Commodity" >
-        INSERT INTO commodity (cid,cname, price,information,detailed,photo,number,salesVolume,time,classify1,classify2)
+        INSERT INTO commodity (cid,cname, price,detailed,photo,number,time,classify)
         VALUES
-            ( #{cid},#{cname}, #{price}, #{information}, #{detailed}, #{photo}, #{number}, #{salesVolume} , #{time} , #{classify1}, #{classify2});
+            ( #{cid},#{cname}, #{price}, #{detailed}, #{photo}, #{number} , #{time} , #{classify});
     </insert>
     <update id="updateCommodity" parameterType="com.gxun.entity.Commodity">
         update commodity
@@ -14,31 +14,26 @@
                 cname=#{cname}
             </if>
             <if test="price!=null">
-                price=#{price}
+                ,price=#{price}
             </if>
-            <if test="information!=null">
-                information=#{information}
-            </if>
+
             <if test="detailed!=null">
-                detailed=#{detailed}
+                ,detailed=#{detailed}
             </if>
             <if test="photo!=null">
-                photo=#{photo}
+                ,photo=#{photo}
             </if>
             <if test="number!=null">
-                number=#{number}
+                ,number=#{number}
             </if>
             <if test="salesVolume!=null">
-                salesVolume=#{salesVolume}
+                ,salesVolume=#{salesVolume}
             </if>
             <if test="shelfState!=null">
-                shelfState=#{shelfState}
+                ,shelfState=#{shelfState}
             </if>
-            <if test="classify1!=null">
-                classify1=#{classify1}
-            </if>
-            <if test="classify2!=null">
-                classify2=#{classify2}
+            <if test="classify!=null">
+                ,classify=#{classify}
             </if>
         </trim>
         where cid=#{cid}
@@ -60,9 +55,7 @@
             <if test="price!=null">
                 price=#{price}
             </if>
-            <if test="information!=null">
-                information=#{information}
-            </if>
+
             <if test="detailed!=null">
                 detailed=#{detailed}
             </if>
@@ -78,11 +71,11 @@
             <if test="shelfState!=null">
                 shelfState=#{shelfState}
             </if>
-            <if test="classify1!=null">
-                classify1=#{classify1}
+            <if test="classify!=null">
+                classify=#{classify}
             </if>
-            <if test="classify2!=null">
-                classify2=#{classify2}
+            <if test="value!=null">
+                and (cid like'%${value}%' or cname like  '%${value}%')
             </if>
         </where>
     </select>
@@ -99,9 +92,7 @@
             <if test="price!=null">
                 price=#{price}
             </if>
-            <if test="information!=null">
-                information=#{information}
-            </if>
+
             <if test="detailed!=null">
                 detailed=#{detailed}
             </if>
@@ -114,11 +105,11 @@
             <if test="salesVolume!=null">
                 salesVolume=#{salesVolume}
             </if>
-            <if test="classify1!=null">
-                classify1=#{classify1}
+            <if test="classify!=null">
+                classify=#{classify}
             </if>
-            <if test="classify2!=null">
-                classify2=#{classify2}
+            <if test="value!=null">
+                and (cid like'%${value}%' or cname like  '%${value}%')
             </if>
             <if test="1==1">
                 shelfState=1

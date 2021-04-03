@@ -29,17 +29,17 @@ public class UsersController implements Serializable {
         return userServices.register(u);
     }
     @RequestMapping("/users/forgetPassword")
-    public String forgetPassword(@RequestBody Users u){
-        return userServices.forgetPassword(u);
-    }
+    public String forgetPassword(@RequestBody Users u){ return userServices.forgetPassword(u); }
+    @RequestMapping("/users/updatePassword")
+    public String updatePassword(@RequestBody HashMap<String,Object> u){ return userServices.updatePassword(u); }
     @RequestMapping("/users/queryUserList")
     public  String queryUserList(@RequestBody HashMap<String,Object> u){
         return userServices.queryUsersList(u);
     }
+    @RequestMapping("/users/selectOneUser")
+    public String selectOneUser(@RequestBody Users users){ return userServices.selectOneUser(users); }
     @RequestMapping("/users/addUsers")
-    public String addUsers(@RequestBody Users users){
-        return userServices.addUsers(users);
-    }
+    public String addUsers(@RequestBody Users users){ return userServices.addUsers(users); }
     @RequestMapping("/users/updateUsers")
     public String updateUsers(@RequestBody Users users){
         return userServices.updateUsers(users);

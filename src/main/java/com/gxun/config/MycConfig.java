@@ -13,14 +13,21 @@ public class MycConfig implements WebMvcConfigurer {
     public LoginHandlerInterceter loginHandlerInterceter(){
         return new LoginHandlerInterceter();
     }
+    @Bean
+    public AdminHandlerInterceter adminHandlerInterceter(){
+        return new AdminHandlerInterceter();
+    }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
 
         // 可添加多个
         registry.addInterceptor(loginHandlerInterceter())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/user/login", "/","/commodity/queryCommodityListIndex");
+                .excludePathPatterns("/user/login", "/","/commodity/queryCommodityListIndex","/commodity/queryCommodityList");
+
+        registry.addInterceptor(adminHandlerInterceter())
+                .addPathPatterns("/commodity/")
+                .excludePathPatterns("/commodity/queryCommodityList","/commodity/queryCommodityListIndex");
 
 
     }

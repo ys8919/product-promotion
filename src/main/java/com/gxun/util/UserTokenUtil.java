@@ -42,6 +42,16 @@ public class UserTokenUtil {
 		}
 		return flag;
 	}
+	public static boolean administratorsUser(String token) {
+
+		if(Integer.parseInt(userMap.get(token).get("jction").toString())==ConstantValueUtil.ADMIN_JCTION)
+		{
+			return true;
+		}else
+		{
+			return false;
+		}
+	}
 	public static String getUserId(String token)
 	{
 		return userMap.get(token).get("uid").toString();

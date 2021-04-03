@@ -16,14 +16,13 @@ import javax.xml.soap.SAAJResult;
 public class Commodity {
     private String cid;
     private String cname;
-    private float price;
+    private Float price;
     private String information;
     private String detailed;
     private String photo;
     private String time;
-    private int number;
-    private int salesVolume;
-    private int shelfState;
-    private int classify1;
-    private int classify2;
+    private Integer number;
+    private Integer salesVolume;
+    private Integer shelfState;
+    private Integer classify;
 }

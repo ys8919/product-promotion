@@ -119,6 +119,37 @@ public class UserServicesImpl implements UserServices {
         }
     }
 
+    @Override
+    public String updatePassword(HashMap<String, Object> u) {
+        HashMap<String, Object> msg=new HashMap<String, Object>();
+        Users users = new Users();
+        users.setUid((String) u.get("uid"));
+        users.setUsername((String) u.get("username"));
+        users.setPassword((String) u.get("password"));
+        System.out.println(users);
+        Users user=usersMapper.login(users);
+        if(user!=null)
+        {
+            user.setPassword((String) u.get("newPasswd"));
+            if(usersMapper.updateUsers(user)>0){
+                msg.put("msg", "修改密码成功");
+                msg.put("code",ConstantValueUtil.RESCODE_SUCCESS);
+                msg.put("flag", true);
+                return JSON.toJSONString(msg);
+            }else {
+                msg.put("msg","修改密码失败");
+                msg.put("flag", false);
+                return JSON.toJSONString(msg);
+            }
+
+        }else
+        {
+            msg.put("msg","修改密码失败，原密码不正确");
+            msg.put("flag", false);
+            return JSON.toJSONString(msg);
+        }
+    }
+
     /*暂时不用*/
     @Override
     public String addUsers(Users users) {
@@ -160,5 +191,15 @@ public class UserServicesImpl implements UserServices {
     @Override
     public String deleteUsers(Users users) {
         return null;
+    }
+
+    @Override
+    public String selectOneUser(Users users) {
+        HashMap<String,Object> msg=new HashMap<String,Object>();
+        Users user=usersMapper.selectOneUser(users);
+        msg.put("msg","查询成功");
+        msg.put("flag",true);
+        msg.put("data",user);
+        return JSON.toJSONString(msg);
     }
 }

@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 @Service
 public class CollectionServicesImpl implements CollectionServices {
     @Autowired
@@ -25,6 +27,23 @@ public class CollectionServicesImpl implements CollectionServices {
         PageHelper.startPage(page,limit);
         ArrayList<Collection> collectionList= collectionMapper.queryCollectionList(u);
         PageInfo<Collection> pageinfo=new PageInfo<Collection>(collectionList);
+        HashMap<String,Object> msg=new HashMap<String,Object>();
+        msg.put("msg","查询成功");
+        msg.put("flag",true);
+        msg.put("data",pageinfo.getList());
+        msg.put("code", ConstantValueUtil.RESCODE_SUCCESS);
+        msg.put("count",pageinfo.getTotal());
+
+        return JSON.toJSONString(msg);
+    }
+
+    @Override
+    public String queryCollectionAndComList(HashMap<String, Object> u) {
+        int limit=Integer.parseInt((String)u.get("limit").toString());
+        int page=Integer.parseInt((String)u.get("page").toString());
+        PageHelper.startPage(page,limit);
+        ArrayList<LinkedHashMap> collectionList= collectionMapper.queryCollectionAndComList(u);
+        PageInfo<LinkedHashMap> pageinfo= new PageInfo<>(collectionList);
         HashMap<String,Object> msg=new HashMap<String,Object>();
         msg.put("msg","查询成功");
         msg.put("flag",true);

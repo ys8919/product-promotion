@@ -18,5 +18,5 @@ public class Users  implements Serializable {
     private String username;
     private String password;
     private String email;
-    private int jction;
+    private Integer jction;
 }

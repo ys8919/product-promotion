@@ -16,7 +16,9 @@ public interface UserServices {
     String login(Users users);
     String register(Users users);
     String forgetPassword(Users users);
+    String updatePassword(HashMap<String, Object> u);
     String addUsers(Users users);
     String updateUsers(Users users);
     String deleteUsers(Users users);
+    String selectOneUser(Users users);
 }

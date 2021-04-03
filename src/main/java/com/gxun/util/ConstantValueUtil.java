@@ -14,6 +14,7 @@ public class ConstantValueUtil {
 	public static final int RESCODE_INSERTERROR = 1007;             //插入失败
 	/*用户权限*/
 	public final static int ORDINARY_JCTION =1;
+	public final static int ADMIN_JCTION =2;
 	/**
 	 * 腾讯云存储桶
 	 */

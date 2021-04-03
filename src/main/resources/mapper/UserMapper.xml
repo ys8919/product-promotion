@@ -13,17 +13,18 @@
                 username=#{username}
             </if>
             <if test="email!=null">
-                email=#{email}
+                 ,email=#{email}
             </if>
             <if test="password!=null">
-                password=#{password}
+                ,password=#{password}
             </if>
-            <if test="jction!=0">
-                jction=#{jction}
+            <if test="jction!=null">
+                 ,jction=#{jction}
             </if>
         </trim>
         where uid=#{uid}
         </update>
+
     <update id="forgetPassword" parameterType="com.gxun.entity.Users">
         update users
         <trim prefix="set" prefixOverrides=",">
@@ -42,16 +43,16 @@
                 uid = ${uid}
             </if>
             <if test="username!= null">
-                AND username =  ${username}
-            </if>
-            <if test="password!= null">
-                AND password = ${password}
+                AND username = like ${username}
             </if>
             <if test="email!= null">
                 AND email = ${email}
             </if>
             <if test="jction!= null">
                 AND jction = #{jction}
+            </if>
+            <if test="value!=null">
+                and (username like'%${value}%' or uid like  '%${value}%')
             </if>
         </where>
     </select>
@@ -68,13 +69,10 @@
             <if test="username != null">
                 AND username =  ${username}
             </if>
-            <if test="password != null">
-                AND password = ${password}
-            </if>
             <if test="email != null">
                 AND email = ${email}
             </if>
-            <if test="jction != 0">
+            <if test="jction != null">
                 AND jction = #{jction}
             </if>
         </where>

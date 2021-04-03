@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 @Service
 public class CommodityServicesImpl implements CommodityServices {
@@ -47,13 +48,22 @@ public class CommodityServicesImpl implements CommodityServices {
         int page=Integer.parseInt((String)u.get("page").toString());
         PageHelper.startPage(page,limit);
         ArrayList<Commodity> commodityList= commodityMapper.queryCommodityListIndex(u);
-        PageInfo<Commodity> pageinfo=new PageInfo<Commodity>(commodityList);
+        PageInfo<Commodity> pageInfo=new PageInfo<Commodity>(commodityList);
+        ArrayList<Commodity> commodityListPage= (ArrayList<Commodity>) pageInfo.getList();
+        //计算每个分类有多少个商品
+        int[] classifyDataCount=new int[8];
+        for ( Commodity commodity : commodityList ) {
+            classifyDataCount[commodity.getClassify()]++;
+        }
+        //System.out.println(Arrays.toString(classifyDataCount));
+
         HashMap<String,Object> msg=new HashMap<String,Object>();
         msg.put("msg","查询成功");
         msg.put("flag",true);
-        msg.put("data",pageinfo.getList());
+        msg.put("data",pageInfo.getList());
+        msg.put("classifyDataCount",classifyDataCount);
         msg.put("code",ConstantValueUtil.RESCODE_SUCCESS);
-        msg.put("count",pageinfo.getTotal());
+        msg.put("count",pageInfo.getTotal());
 
         return JSON.toJSONString(msg);
     }

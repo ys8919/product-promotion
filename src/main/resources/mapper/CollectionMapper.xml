@@ -13,7 +13,7 @@
                 uid=#{uid}
             </if>
             <if test="cid!=null">
-                cid=#{cid}
+                ,cid=#{cid}
             </if>
         </trim>
         where id=#{id}
@@ -35,6 +35,24 @@
             <if test="cid!=null">
                 cid=#{cid}
             </if>
+        </where>
+    </select>
+    <select id="queryCollectionAndComList" resultType="java.util.LinkedHashMap" parameterType="HashMap">
+        select * from Collection,commodity
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="uid!=null">
+                uid=#{uid}
+            </if>
+            <if test="cid!=null">
+                cid=#{cid}
+            </if>
+            <if test="1=1">
+                Collection.cid=commodity.cid
+            </if>
+
         </where>
     </select>
 </mapper>

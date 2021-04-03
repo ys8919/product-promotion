@@ -22,6 +22,11 @@ public class CollectionController {
     public  String queryCollectionList(@RequestBody HashMap<String,Object> u){
         return collectionServices.queryCollectionList(u);
     }
+
+    @RequestMapping("/collection/queryCollectionAndComList")
+    public  String queryCollectionAndComList(@RequestBody HashMap<String,Object> u){
+        return collectionServices.queryCollectionAndComList(u);
+    }
     @RequestMapping("/collection/addCollection")
     public String addCollection(@RequestBody Collection commodity){
         return collectionServices.addCollection(commodity);
