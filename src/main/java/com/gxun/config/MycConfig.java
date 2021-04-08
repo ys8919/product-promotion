@@ -23,7 +23,14 @@ public class MycConfig implements WebMvcConfigurer {
         // 可添加多个
         registry.addInterceptor(loginHandlerInterceter())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/user/login", "/","/commodity/queryCommodityListIndex","/commodity/queryCommodityList");
+                .excludePathPatterns(
+                        "/user/login",
+                        "/",
+                        "/commodity/queryCommodityListIndex",
+                        "/commodity/queryCommodityList",
+                        "/collection/queryCollectionList",
+                        //"/collection/queryCollectionAndComList",
+                        "/collection/queryCollectionAndUserList");
 
         registry.addInterceptor(adminHandlerInterceter())
                 .addPathPatterns("/commodity/")

@@ -15,7 +15,9 @@ import java.util.Map;
 public interface CollectionMapper {
     ArrayList<Collection> queryCollectionList(HashMap<String, Object> u);
     ArrayList<LinkedHashMap> queryCollectionAndComList(HashMap<String, Object> u);
+    ArrayList<LinkedHashMap> queryCollectionAndUserList(HashMap<String, Object> u);
     int addCollection(Collection collection);
     int updateCollection(Collection collection);
     int deleteCollection(Collection collection);
+    Collection queryIsCollection(Collection collection);
 }

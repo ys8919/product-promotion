@@ -14,6 +14,7 @@ public interface CommodityMapper {
     ArrayList<Commodity> queryCommodityList(HashMap<String, Object> u);
     ArrayList<Commodity> queryCommodityListIndex(HashMap<String, Object> u);
     int addCommodity(Commodity commodity);
+    Commodity selectOneCommodity(Commodity commodity);
     int updateCommodity(Commodity commodity);
     int deleteCommodity(Commodity commodity);
 }

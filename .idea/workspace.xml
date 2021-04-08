@@ -4,27 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1756fa69-3bf7-4de9-907d-3613e10d9753" name="Default Changelist" comment="2021-3-18">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_3_7_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gxun/config/AdminHandlerInterceter.java" afterDir="false" />
+    <list default="true" id="1756fa69-3bf7-4de9-907d-3613e10d9753" name="Default Changelist" comment="2021-4-3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-promotion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/product-promotion.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/config/LoginHandlerInterceter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/config/LoginHandlerInterceter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/config/MycConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/config/MycConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/controller/CollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/controller/CollectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/controller/UsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/dao/CollectionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/dao/CollectionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/entity/Commodity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/entity/Commodity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/entity/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/dao/CommodityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/dao/CommodityMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/services/CollectionServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/services/CollectionServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/services/UserServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/services/impl/CollectionServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/services/impl/CollectionServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/services/impl/CommodityServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/services/impl/CommodityServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/services/impl/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/services/impl/UserServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/util/ConstantValueUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/util/ConstantValueUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gxun/util/UserTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gxun/util/UserTokenUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CollectionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CollectionMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CommodityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CommodityMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
@@ -198,7 +186,16 @@
       <workItem from="1617115199317" duration="902000" />
       <workItem from="1617162879440" duration="7223000" />
       <workItem from="1617352434280" duration="3588000" />
-      <workItem from="1617433621052" duration="1312000" />
+      <workItem from="1617433621052" duration="1960000" />
+      <workItem from="1617459442955" duration="4032000" />
+      <workItem from="1617599790467" duration="9996000" />
+      <workItem from="1617629909491" duration="7711000" />
+      <workItem from="1617674821223" duration="3631000" />
+      <workItem from="1617718451157" duration="1768000" />
+      <workItem from="1617761386268" duration="249000" />
+      <workItem from="1617761832126" duration="5522000" />
+      <workItem from="1617842619139" duration="985000" />
+      <workItem from="1617893539291" duration="1754000" />
     </task>
     <task id="LOCAL-00001" summary="2021-3-5 添加收藏模块">
       <created>1614874748499</created>
@@ -214,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616055958207</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2021-4-3">
+      <created>1617434986644</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617434986644</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +239,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2021-3-5 添加收藏模块" />
     <MESSAGE value="2021-3-18" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021-3-18" />
+    <MESSAGE value="2021-4-3" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021-4-3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gxun/services/CommodityServices.java</url>
+          <line>14</line>
+          <properties class="com.gxun.services.CommodityServices" method="queryCommodityListIndex">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

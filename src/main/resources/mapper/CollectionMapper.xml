@@ -30,29 +30,51 @@
                 id=#{id}
             </if>
             <if test="uid!=null">
-                uid=#{uid}
+                and uid=#{uid}
             </if>
             <if test="cid!=null">
-                cid=#{cid}
+                and cid=#{cid}
             </if>
         </where>
     </select>
     <select id="queryCollectionAndComList" resultType="java.util.LinkedHashMap" parameterType="HashMap">
-        select * from Collection,commodity
+        select id,Collection.cid cid,cname,Collection.time ctime, commodity.time comTime,price,photo,number,salesVolume,shelfState,classify from Collection,commodity
         <where>
             <if test="id!=null">
                 id=#{id}
             </if>
             <if test="uid!=null">
-                uid=#{uid}
+                and uid=#{uid}
             </if>
             <if test="cid!=null">
-                cid=#{cid}
+                and cid=#{cid}
             </if>
-            <if test="1=1">
-                Collection.cid=commodity.cid
+            <if test="1==1">
+                and Collection.cid=commodity.cid
             </if>
 
         </where>
+    </select>
+    <select id="queryCollectionAndUserList" resultType="java.util.LinkedHashMap" parameterType="HashMap">
+        select cid,users.uid uid,username,email,time,id from Collection,users
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="uid!=null">
+                and uid=#{uid}
+            </if>
+            <if test="cid!=null">
+                and cid=#{cid}
+            </if>
+            <if test="1==1">
+                and Collection.uid=users.uid
+            </if>
+
+        </where>
+    </select>
+    <select id="queryIsCollection" resultType="com.gxun.entity.Collection" parameterType="com.gxun.entity.Collection">
+        select * from Collection
+        where cid=#{cid} and uid=#{uid}
     </select>
 </mapper>

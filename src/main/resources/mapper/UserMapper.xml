@@ -40,13 +40,13 @@
         select uid,username,email,jction from users
         <where>
             <if test="uid!= null">
-                uid = ${uid}
+                uid = #{uid}
             </if>
             <if test="username!= null">
-                AND username = like ${username}
+                AND username = #{username}
             </if>
             <if test="email!= null">
-                AND email = ${email}
+                AND email = #{email}
             </if>
             <if test="jction!= null">
                 AND jction = #{jction}

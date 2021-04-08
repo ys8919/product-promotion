@@ -112,9 +112,21 @@
                 and (cid like'%${value}%' or cname like  '%${value}%')
             </if>
             <if test="1==1">
-                shelfState=1
+                and shelfState=1
             </if>
         </where>
-        ORDER BY time DESC , salesVolume DESC
+        ORDER BY  salesVolume DESC , time DESC  limit 0,6
     </select>
+    <select id="selectOneCommodity" parameterType="com.gxun.entity.Commodity" resultType="com.gxun.entity.Commodity">
+        select * from commodity
+        <where>
+            <if test="cid!=null">
+                cid=#{cid}
+            </if>
+            <if test="cname!=null">
+                cname=#{cname}
+            </if>
+        </where>
+    </select>
+
 </mapper>

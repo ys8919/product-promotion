@@ -27,16 +27,26 @@ public class CollectionController {
     public  String queryCollectionAndComList(@RequestBody HashMap<String,Object> u){
         return collectionServices.queryCollectionAndComList(u);
     }
+
+    @RequestMapping("/collection/queryCollectionAndUserList")
+    public  String queryCollectionAndUserList(@RequestBody HashMap<String,Object> u){
+        return collectionServices.queryCollectionAndUserList(u);
+    }
+
     @RequestMapping("/collection/addCollection")
-    public String addCollection(@RequestBody Collection commodity){
-        return collectionServices.addCollection(commodity);
+    public String addCollection(@RequestBody HashMap<String,Object> u){
+        return collectionServices.addCollection(u);
     }
     @RequestMapping("/collection/updateCollection")
-    public String updateCollection(@RequestBody Collection commodity){
-        return collectionServices.updateCollection(commodity);
+    public String updateCollection(@RequestBody Collection collection){
+        return collectionServices.updateCollection(collection);
     }
     @RequestMapping("/collection/deleteCollection")
-    public String deleteCollection(@RequestBody Collection commodity){
-        return collectionServices.deleteCollection(commodity);
+    public String deleteCollection(@RequestBody Collection collection){
+        return collectionServices.deleteCollection(collection);
+    }
+    @RequestMapping("/collection/queryIsCollection")
+    public String queryIsCollection(@RequestBody Collection collection){
+        return collectionServices.queryIsCollection(collection);
     }
 }

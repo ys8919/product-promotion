@@ -44,26 +44,31 @@ public class CommodityServicesImpl implements CommodityServices {
 
     @Override
     public String queryCommodityListIndex(HashMap<String, Object> u) {
-        int limit=Integer.parseInt((String)u.get("limit").toString());
+        /*int limit=Integer.parseInt((String)u.get("limit").toString());
         int page=Integer.parseInt((String)u.get("page").toString());
-        PageHelper.startPage(page,limit);
-        ArrayList<Commodity> commodityList= commodityMapper.queryCommodityListIndex(u);
-        PageInfo<Commodity> pageInfo=new PageInfo<Commodity>(commodityList);
-        ArrayList<Commodity> commodityListPage= (ArrayList<Commodity>) pageInfo.getList();
+        PageHelper.startPage(page,limit);*/
+        ArrayList<Commodity> commodityList;
+        ArrayList<ArrayList> list = new ArrayList<>();
+        //PageInfo<Commodity> pageInfo=new PageInfo<Commodity>(commodityList);
         //计算每个分类有多少个商品
-        int[] classifyDataCount=new int[8];
-        for ( Commodity commodity : commodityList ) {
-            classifyDataCount[commodity.getClassify()]++;
+        int[] classifyDataCount=new int[7];
+        int count=0;
+        for (int i=1;i<=6;i++) {
+            u.put("classify",i);
+            commodityList= commodityMapper.queryCommodityListIndex(u);
+            list.add(commodityList);
+            classifyDataCount[i]=commodityList.size();
+            count+=commodityList.size();
         }
         //System.out.println(Arrays.toString(classifyDataCount));
-
+        //System.out.println(Arrays.toString(classifyDataCount));
         HashMap<String,Object> msg=new HashMap<String,Object>();
         msg.put("msg","查询成功");
         msg.put("flag",true);
-        msg.put("data",pageInfo.getList());
+        msg.put("data",list);
         msg.put("classifyDataCount",classifyDataCount);
         msg.put("code",ConstantValueUtil.RESCODE_SUCCESS);
-        msg.put("count",pageInfo.getTotal());
+        msg.put("count",count);
 
         return JSON.toJSONString(msg);
     }
@@ -79,15 +84,18 @@ public class CommodityServicesImpl implements CommodityServices {
         if (fileName.lastIndexOf(".") < 0) {
             msg.put("msg","上传文件格式不正确");
             msg.put("flag",false);
+            msg.put("code",ConstantValueUtil.RESCODE_EXCEPTION);
         }
 
         //获取文件后缀
         String prefix = fileName.substring(fileName.lastIndexOf("."));
 
-//        //如果不是图片
-//        if (!prefix.equalsIgnoreCase(".jpg") && !prefix.equalsIgnoreCase(".jpeg") && !prefix.equalsIgnoreCase(".svg") && !prefix.equalsIgnoreCase(".gif") && !prefix.equalsIgnoreCase(".png")) {
-//            return new ForumResult(500, "上传图片格式不正确", null);
-//        }
+        //如果不是图片
+        if (!prefix.equalsIgnoreCase(".jpg") && !prefix.equalsIgnoreCase(".jpeg") && !prefix.equalsIgnoreCase(".svg") && !prefix.equalsIgnoreCase(".gif") && !prefix.equalsIgnoreCase(".png")) {
+            msg.put("msg","上传文件格式不正确");
+            msg.put("flag",false);
+            msg.put("code",ConstantValueUtil.RESCODE_EXCEPTION);
+        }
 
         //使用uuid作为文件名，防止生成的临时文件重复
         final File excelFile = File.createTempFile("ApplicationFile-" + System.currentTimeMillis(), prefix);
