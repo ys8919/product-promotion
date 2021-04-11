@@ -29,6 +29,9 @@ public class CommodityServicesImpl implements CommodityServices {
     public String queryCommodityList(HashMap<String, Object> u) {
         int limit=Integer.parseInt((String)u.get("limit").toString());
         int page=Integer.parseInt((String)u.get("page").toString());
+        if(u.get("classify")!=null&&u.get("classify").toString().equals("0")){
+            u.remove("classify");
+        }
         PageHelper.startPage(page,limit);
         ArrayList<Commodity> commodityList= commodityMapper.queryCommodityList(u);
         PageInfo<Commodity> pageinfo=new PageInfo<Commodity>(commodityList);

@@ -75,7 +75,7 @@
                 classify=#{classify}
             </if>
             <if test="value!=null">
-                and (cid like'%${value}%' or cname like  '%${value}%')
+                and ( cname like  '%${value}%')
             </if>
         </where>
     </select>
